@@ -1,4 +1,3 @@
-// const RequestHelper = require("../helpers/request.helper");
 const RequestHelper = require("../pageobjects/request.helper");
 const {
   selectButton,
