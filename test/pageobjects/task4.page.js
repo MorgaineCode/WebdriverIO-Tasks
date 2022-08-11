@@ -1,6 +1,4 @@
-const Page = require("./page");
-
-class Task4Page extends Page {
+class Task4Page {
   get goal() {
     return $("//td[contains(text(),'Trail set to:')]//code");
   }
@@ -34,10 +32,6 @@ class Task4Page extends Page {
    const radio = await $(`//div[contains(h5,'${group}')]//text()[contains(.,'${text}')]/preceding::input[1]`);
    await radio.waitForDisplayed();
    await radio.click();
-  }
-
-  open() {
-    return super.open("/exercise4?seed=4902f02e-9c01-43d6-a1d7-beb119b41cbc");
   }
 }
 

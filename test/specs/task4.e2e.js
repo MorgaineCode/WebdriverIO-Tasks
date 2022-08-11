@@ -21,6 +21,7 @@ describe("Task 4", () => {
     await await expect(Task4Page.goal.getText()).toEqual(
       Task4Page.resultField.getText()
     );
+    
     //submiting solution and veryfing result
     await Task4Page.btnSolution.click();
     await expect(Task4Page.resultField).toHaveText("OK. Good answer");

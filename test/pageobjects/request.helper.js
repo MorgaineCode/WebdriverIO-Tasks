@@ -1,6 +1,4 @@
-const Page = require("./page");
-
-class RequestHelper extends Page {
+class RequestHelper {
   async requestDetails(req) {
     const request = req;
     const responseStatus = await request.response?.statusCode;
