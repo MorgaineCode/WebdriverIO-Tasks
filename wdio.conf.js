@@ -94,7 +94,7 @@ exports.config = {
   // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
   // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
   // gets prepended directly.
-  baseUrl: "http://localhost",
+  baseUrl: "https://antycaptcha.amberteam.pl",
   //
   // Default timeout for all waitFor* commands.
   waitforTimeout: 10000,
@@ -155,6 +155,10 @@ exports.config = {
    * @param {Array.<Object>} capabilities list of capabilities details
    */
   // onPrepare: function (config, capabilities) {
+  //   capabilities.maxInstances 
+     
+    
+
   // },
   /**
    * Gets executed before a worker process is spawned and can be used to initialise specific service

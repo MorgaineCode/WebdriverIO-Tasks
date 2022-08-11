@@ -7,9 +7,13 @@
 1. Run npm install
 2. Running tests:
 
-You can start your test suite by using the run command and pointing to the WebdriverIO config:
-npx wdio run ./wdio.conf.js
+To run all available tests:
+`npx wdio`
+
+To set the number of workers you can add --maxInstances parameter:
+`npx wdio --maxInstances 2`
 
 
 If you like to run specific test files you can add a --spec parameter:
-npx wdio run ./wdio.conf.js --spec example.e2e.js
+`npx wdio --spec task1`
+

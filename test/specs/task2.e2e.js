@@ -3,7 +3,7 @@ const Task2Page = require("../pageobjects/task2.page");
 
 describe("Task 2", () => {
   it("Fills input field and presses the button", async () => {
-    await Task2Page.open();
+    await browser.url("/exercises/exercise2?seed=47fd35b8-4aec-4671-84ad-48a79196f3ba")
 
     //filling input field with expected text
     await Task2Page.inputField.click();
@@ -12,18 +12,19 @@ describe("Task 2", () => {
       await Task2Page.expectedText
     );
     await browser.setupInterceptor();
+    
     //pressing button and trail verification
     await Task2Page.btnB1.click();
     await expect(Task2Page.resultField).toHaveText(
       await Task2Page.goal.getText()
     );
+
     //request verification
     const req = await browser.getRequest(0);
     const requestDetails = await RequestHelper.requestDetails(req);
     await expect(requestDetails.responseStatus).toEqual(200);
-    expect(requestDetails.responseBody).toEqual(
-      "trail:" + (await Task2Page.goal.getText())
-    );
+    expect(requestDetails.responseBody).toEqual(await Task2Page.goal.getText());
+
     //solution submit and verification
     await Task2Page.btnSolution.click();
     await expect(Task2Page.resultField).toHaveText("OK. Good answer");

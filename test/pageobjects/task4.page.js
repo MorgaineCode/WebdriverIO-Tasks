@@ -1,6 +1,4 @@
-const Page = require("./page");
-
-class Task4Page extends Page {
+class Task4Page {
   get goal() {
     return $("//td[contains(text(),'Trail set to:')]//code");
   }
@@ -21,22 +19,6 @@ class Task4Page extends Page {
     return $("(//td/code)[4]").getText();
   }
 
-  get group0() {
-    return $$("//div[contains(h5,'Group 0')]/input");
-  }
-
-  get group1() {
-    return $$("//div[contains(h5,'Group 1')]/input");
-  }
-
-  get group2() {
-    return $$("//div[contains(h5,'Group 2')]/input");
-  }
-
-  get group3() {
-    return $$("//div[contains(h5,'Group 3')]/input");
-  }
-
   get btnSolution() {
     return $("#solution");
   }
@@ -45,21 +27,11 @@ class Task4Page extends Page {
     return $("//*[@id='trail']/code");
   }
 
-  async selectFromGroup(group, expectedText) {
-    let inputs = await group;
-    let chosen = "";
-    const text = await expectedText;
-    for (let i = 0; i < inputs.length; ++i) {
-      let nextSibling = await inputs[i].getProperty("nextSibling");
-      if (nextSibling.data == text) {
-        chosen = inputs[i];
-      }
-    }
-    await chosen.click();
-  }
 
-  open() {
-    return super.open("/exercise4?seed=4902f02e-9c01-43d6-a1d7-beb119b41cbc");
+  async selectRadioInput(group,text) {
+   const radio = await $(`//div[contains(h5,'${group}')]//text()[contains(.,'${text}')]/preceding::input[1]`);
+   await radio.waitForDisplayed();
+   await radio.click();
   }
 }
 

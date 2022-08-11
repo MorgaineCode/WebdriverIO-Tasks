@@ -1,6 +1,4 @@
-const Page = require("./page");
-
-class Task3Page extends Page {
+class Task3Page {
   get goal() {
     return $("//td[contains(text(),'Trail set to:')]//code");
   }
@@ -23,10 +21,6 @@ class Task3Page extends Page {
 
   get btnSolution() {
     return $("#solution");
-  }
-
-  open() {
-    return super.open("/exercise3?seed=4902f02e-9c01-43d6-a1d7-beb119b41cbc");
   }
 }
 
