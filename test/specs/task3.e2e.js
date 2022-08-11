@@ -2,7 +2,7 @@ const Task3Page = require("../pageobjects/task3.page");
 
 describe("Task 3", () => {
   it("Selects option from the dropdown menu", async () => {
-    await Task3Page.open();
+    await browser.url("/exercises/exercise3?seed=47fd35b8-4aec-4671-84ad-48a79196f3ba");
     //selecting expected text from the dropdown
     await Task3Page.dropdown.click();
     await Task3Page.allOptions[1].isDisplayed();
